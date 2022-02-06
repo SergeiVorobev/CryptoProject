@@ -1,0 +1,25 @@
+
+.homepage {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: honeydew;
+}
+
+.bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: honeydew;
+}
+.test {
+    color: #00c247;
+    padding: 20px 20px 20px 40px;
+
+}
+
+.text-center {
+    color: red;
+}
