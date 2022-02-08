@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+    Add Strategy
+</h1>
+<br/>
+    {% if submitted %}
+         Your strategy was submitted successfully!
+        <div>
+            <a href="{%  url 'strategies' %}" class="btn btn-primary"> SEE Strategy</a>
+        </div>
+    {% else %}
+        <form action="" method=POST>
+            {% csrf_token %}
+              {{ form.as_p }}
+            <br><br>
+            <a href="{%  url 'strategies' %}" class="btn btn-secondary">COME BACK</a>
+            <input type="submit" value="SUBMIT" class="btn btn-primary">
+
+        </form>
+    {% endif %}
+{% endblock %}

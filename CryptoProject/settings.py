@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crypto.apps.CryptoConfig',
+    'django_truncate',
+
 ]
 
 MIDDLEWARE = [

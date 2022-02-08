@@ -1,0 +1,49 @@
+{% extends 'strategy/show_strategy.html' %}
+
+{% block content2 %}
+<div class="content">
+ <table id='fix-price' class="table table-hover table-bordered">
+     <tr>
+         <th>Current price</th>
+         {% if strategy.long_strategy %}
+             <th>Sell price(fix order) </th>
+             <th>Quantity for sell(fix order)</th>
+         {% else %}
+             <th>Buy price(fix order)</th>
+             <th>Quantity for buying(fix order)</th>
+         {% endif %}
+
+     </tr>
+     {% for key,value in profit_order %}
+        <tr>
+             <td>{{ current_price }}</td>
+
+            <td>{{ key }}</td>
+            <td>
+                {{ value }}
+            </td>
+
+        </tr>
+     {% endfor %}
+
+
+ </table>
+ <table id='orders' class="table table-hover table-bordered">
+        <tr>
+            <th>Prices</th>
+            <th>Orders</th>
+        </tr>
+        {% for key,value in my_orders %}
+            <tr>
+                <td>
+                   {{ key }}
+                </td>
+                <td>
+                    {{ value }}
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

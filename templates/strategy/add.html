@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div>
+    <h1>Add Strategy</h1>
+    </div>
+    <br/>
+    {% if submitted %}
+        Your strategy was submitted successfully!
+        <br/>
+        <a href="{% url 'strategies' %}" class="btn btn-primary">SEE Strategies</a>
+    {% else %}
+        <form action="" method=POST>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br/>
+            <a href="{% url 'strategies' %}" class="btn btn-secondary">COME BACK</a>
+            <input type="submit" value="SUBMIT" class="btn btn-primary">
+        </form>
+    {% endif %}
+    </div>
+
+{% endblock content %}

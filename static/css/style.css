@@ -15,11 +15,31 @@
     background-color: honeydew;
 }
 .test {
-    color: #00c247;
     padding: 20px 20px 20px 40px;
 
 }
 
 .text-center {
-    color: red;
+    color: #00c247;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 1000px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#btn-toolbar {
+    align-content: center;
+}
+
+#fix-price td {
+    width: 30%;
+    color: #25d028;
+}
+
+#orders td {
+    width: 30%;
+    color: #254fd0;
 }

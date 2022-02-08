@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="center">
+        <h1 class="opaqueWhite" style="text-align: center">Trade strategies</h1>
+</div>
+    <br/>
+{#    <form class="form-inline my-2 my-lg-0" method= POST action="{% url 'search-events' %}">#}
+{#        {% csrf_token %}#}
+{##}
+{#      <input class="form-control mr-sm-2" type="search" placeholder="Event" aria-label="Search" name="searched">#}
+{#      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" style="background-color: darkgrey">Search</button>#}
+{##}
+{#    </form>#}
+    <br/>
+    <table class="table table-hover table-bordered" style="background-color: rgba(255, 255, 255, 0.8); width: 1000px">
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+        {% for s in strategies %}
+            <tr>
+                {% if s.is_past_due %}
+                                <tr>
+
+                    <td>
+                        <p style="color: orange; font-size:22px">
+                            <a href="{% url 'show-strategy' s.id %}" style="color: orange; font-size:22px"> {{ s }}
+                            </a> (in the past)  </p>
+                    </td>
+                    <td style="font-size: 20px; width: 30%;color: orange;">
+                          on {{ s.date_strategy }}
+                    </td>
+
+                {% else %}
+                    <tr height = 5px></tr>
+                    <td>
+                        <a href="{% url 'show-strategy' s.id %}" style="color: black; font-size:22px"> {{ s }} </a>
+                    </td>
+                    <td style="font-size: 20px; width: 30%;">
+                          on {{ s.date_strategy }}
+                     </td>
+                {% endif %}
+
+            </tr>
+        {% endfor %}
+    </table>
+    <br/>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+         <a href="{%  url 'home' %}" class="btn btn-secondary" >BACK</a>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <a href="{%  url 'add-strategy' %}" class="btn btn-primary">ADD Strategy</a>
+      </div>
+
+    </div>
+
+
+{% endblock %}

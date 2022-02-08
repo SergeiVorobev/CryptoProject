@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+          <h5 class="card-header"> <strong>{{strategy}}</strong></h5>
+          <div class="card-body">
+            <h5 class="card-title">Details</h5>
+            <div>
+                <ul>
+                    <li>Strategy: {{ strategy.name }}</li>
+                    <li>Is long: {{ strategy.long_strategy }}</li>
+                    <li>Pair: {{ strategy.pair }}</li>
+                    <li>Amount to buy: {{ strategy.total_amount_of_coin }}</li>
+                    <li>Number of orders: {{ strategy.number_of_orders }}</li>
+                    <li>Orders margin(between orders), %: {{ strategy.margin}}</li>
+                    <li>Last order margin, %: {{ strategy.max_set_margin }}</li>
+                    <li>First order margin, %: {{ strategy.first_margin }}</li>
+                    <li>Use BNB for commission: {{ strategy.use_bnb }}</li>
+                    <li>Planing profit percentage, %: {{ strategy.profit }}</li>
+                    <li>Start price: {{ strategy.start_price }}</li>
+                 </ul>
+                Created: {{ strategy.date_strategy }}
+
+          </div>
+
+              <h5 class="card-title">Images</h5>
+            <div>
+                No Images to show yet
+          </div>
+        </div>
+     </div>
+    <br/>
+    <div class="btn-group mr-2" role="button" aria-label="Second group">
+         <a href="{%  url 'calculate-orders' strategy.id %}" class="btn btn-primary" >Calculate orders</a>
+    </div>
+    <br/><br/>
+    {% block content2 %}
+    {% endblock %}
+    <br/>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+         <a href="{%  url 'strategies' %}" class="btn btn-secondary" >BACK</a>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <a href="{%  url 'edit-strategy' strategy.id %}" class="btn btn-primary">EDIT STRATEGY</a>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <a href="{%  url 'del-strategy' strategy.id %}" class="btn btn-danger">DELETE STRATEGY</a>
+      </div>
+    </div>
+
+{% endblock %}
